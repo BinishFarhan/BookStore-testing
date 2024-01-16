@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="carousel.css" />
+<script src="carousel.js"></script>
+</head>
+
+<body id="body">
+
+  <nav class="navbar navbar-expand-lg background w-full shadow-lg" id="indNav">
+    <div class="container-fluid">
+      <div class="d-flex">
+        <img class="logo me-2" src="./images/images.jpeg" alt="">
+        <a class="navbar-brand fw-bold text d-none d-sm-block mt-2" href="#">Books-Library</a>
+      </div>
+      
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light textColor" id="addBookBtn1">
+        Add Books
+      </button>
+      <button type="button" class="btn btn-light textColor" id="SignOutBtn">
+        SignOut
+      </button>
+
+      <!-- Modal -->
+      <div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 text" id="exampleModalLabel">Add Book Form</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="titleInp" class="text">Book Title</label>
+                <input type="text" class="form-control" id="titleInp" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="priceInp" class="text">Book Cost</label>
+                <input type="text" class="form-control" id="priceInp">
+              </div>
+              <div class="mb-3">
+                <label for="authorInp" class="text">Author</label>
+                <input type="text" class="form-control" id="authorInp" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="imageInp" class="text">Image Address</label>
+                <input type="text" class="form-control" id="imageInp" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="readInp" class="text">Book URL</label>
+                <input type="text" class="form-control" id="readInp" aria-describedby="emailHelp">
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary textColor" data-bs-dismiss="modal">Close</button> -->
+              <button type="button" class="btn btn-primary textColor" id="addBookModalBtn" data-bs-dismiss="modal">Add Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div>
+    <h1 id="welcome"></h1>
+    <h1 id="BookCards"></h1>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  
+    <script src="./js/firebase.js" type="module"></script>
+  <script src="./js/index.js" type="module"></script>
+</body>
+
+</html>
