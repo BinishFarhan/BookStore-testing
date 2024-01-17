@@ -4,67 +4,169 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>InkVista Books</title>
+  <link rel="icon" href="./images/untidy-stack-books_1101-319__1_-removebg-preview.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="carousel.css" />
-<script src="carousel.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lemon&family=Merriweather:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body id="body">
-
-  <nav class="navbar navbar-expand-lg background w-full shadow-lg" id="indNav">
+  <nav class="navbar navbar-expand-lg background">
     <div class="container-fluid">
-      <div class="d-flex">
-        <img class="logo me-2" src="./images/images.jpeg" alt="">
-        <a class="navbar-brand fw-bold text d-none d-sm-block mt-2" href="#">Books-Library</a>
-      </div>
-      
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light textColor" id="addBookBtn1">
-        Add Books
+      <a class="navbar-brand me-5" href="#">
+        <div class="d-flex">
+          <img class="logo" src="./images/untidy-stack-books_1101-319__1_-removebg-preview.png" alt="">
+          <div class="d-flex flex-column mt-3 ">
+            <h1 class="logo-margin fs-6">InkVista</h1>
+            <h1 class="fs-6 fw-bold logo-color">Books</h1>
+          </div>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <button type="button" class="btn btn-light textColor" id="SignOutBtn">
-        SignOut
-      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+          <li class="nav-item me-4 mt-2 ">
+            <a class="nav-link nav-anchor" href="#">Home</a>
+          </li>
+          <li class="nav-item me-4 mt-2">
+            <a class="nav-link nav-anchor" href="#">About Us</a>
+          </li>
+          <li class="nav-item me-4 mt-2">
+            <a class="nav-link nav-anchor" href="#">Book Store</a>
+          </li>
+          <li class="nav-item me-4 mt-2">
+            <a class="nav-link nav-anchor" href="#">Contact Us</a>
+          </li>
 
-      <!-- Modal -->
-      <div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </ul>
+        <div class="d-flex">
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+          <button class="btn me-3" type="submit"><i class="bi bi-people-fill fs-3"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="4000">
+        <div class="container-fluid mt-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="w-100 d-flex justify-content-between">
+                <div class="m-5">
+                  <div class="m-5">
+                    <h1 class="logo-color">InkVista_</h1>
+                    <h1 class="banner-font">The Best <span class="logo-color">Online</span>
+                      Book <span class="logo-color">Shop</span></h1>
+                    <p class="fw-lighter mt-3">Discover a world of literary wonders at InkVista, where passion meets
+                      pages. We take pride in offering a curated selection of books that cater to every reader's taste,
+                      ensuring a delightful journey through the realms of imagination and knowledge.</p>
+                    <button class="btn me-3" type="submit">Read More!</button>
+                  </div>
+                </div>
+                <img src="./images/untidy-stack-books_1101-319__1_-removebg-preview.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="4000">
+        <div class="container-fluid mt-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="w-100 d-flex justify-content-between">
+                <div class="m-5">
+                  <div class="m-5">
+                    <h1 class="logo-color">Be a litrary Influencer!</h1>
+                    <h1 class="banner-font1 mt-5">Add Book to our shelves and <span class="logo-color">Inspire</span>
+                      others.. </h1>
+                    <button class="btn me-3 mt-4" type="submit">Add Book!</button>
+                  </div>
+                </div>
+                <img src="./images/add books 2.avif" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="4000">
+        <div class="container-fluid mt-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="w-100 d-flex justify-content-between">
+                <div class="m-5">
+                  <div class="m-5">
+                    <h1 class="logo-color">Dive into Books anywhere, anytime!</h1>
+                    <h1 class="banner-font1 mt-5">Read Online for instant <span class="logo-color">Literary Bliss!</span>
+                     </h1>
+                    <button class="btn me-3 mt-4" type="submit">Read Online!</button>
+                  </div>
+                </div>
+                <img src="./images/reading books 211.avif" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <div class="container-fluid mt-2">
+        <div class="row">
+          <div class="col-12">
+            <div class="w-100 d-flex justify-content-between">
+              <div class="m-5">
+                <div class="m-5">
+                  <h1 class="logo-color">Shop now and brings home the Magic!</h1>
+                  <h1 class="banner-font1 mt-5">Your next favourite book awaits in our  <span class="logo-color">store!</span>
+                   </h1>
+                  <button class="btn me-3 mt-4" type="submit">Shop Now!</button>
+                </div>
+              </div>
+              <img src="./images/shopping books kids11.avif" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Button trigger modal -->
+
+
+
+  <!-- Modal -->
+  <!-- <div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5 text" id="exampleModalLabel">Add Book Form</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h1 class="modal-title fs-5 text" id="exampleModalLabel">please sign in to add books</h1>
             </div>
             <div class="modal-body">
-              <div class="mb-3">
-                <label for="titleInp" class="text">Book Title</label>
-                <input type="text" class="form-control" id="titleInp" aria-describedby="emailHelp">
-              </div>
-              <div class="mb-3">
-                <label for="priceInp" class="text">Book Cost</label>
-                <input type="text" class="form-control" id="priceInp">
-              </div>
-              <div class="mb-3">
-                <label for="authorInp" class="text">Author</label>
-                <input type="text" class="form-control" id="authorInp" aria-describedby="emailHelp">
-              </div>
-              <div class="mb-3">
-                <label for="imageInp" class="text">Image Address</label>
-                <input type="text" class="form-control" id="imageInp" aria-describedby="emailHelp">
-              </div>
-              <div class="mb-3">
-                <label for="readInp" class="text">Book URL</label>
-                <input type="text" class="form-control" id="readInp" aria-describedby="emailHelp">
-              </div>
-              
-            </div>
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-secondary textColor" data-bs-dismiss="modal">Close</button> -->
-              <button type="button" class="btn btn-primary textColor" id="addBookModalBtn" data-bs-dismiss="modal">Add Book</button>
+              <a href="login.html"><button type="button" class="btn btn-primary textColor" id="addBookModalBtn"
+                  data-bs-dismiss="modal">Login</button></a>
+              <a href="signup.html"><button type="button" class="btn btn-primary textColor" id="addBookModalBtn"
+                  data-bs-dismiss="modal">SignUp</button></a>
             </div>
           </div>
         </div>
@@ -72,15 +174,17 @@
     </div>
   </nav>
   <div>
-    <h1 id="welcome"></h1>
-    <h1 id="BookCards"></h1>
-  </div>
-  
+    <h1 id="books">
+
+
+    </h1>
+  </div> -->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-  
-    <script src="./js/firebase.js" type="module"></script>
+
+  <script src="./js/firebase.js" type="module"></script>
   <script src="./js/index.js" type="module"></script>
 </body>
 

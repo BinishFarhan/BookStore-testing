@@ -15,7 +15,7 @@ function logIn(){
     console.log("🚀 ~ .then ~ user:", user)
     // console.log("🚀 ~ .then ~ user:", user.displayName)
         
-    location.href = "index.html"
+    location.href = "userHome.html"
     
   })
   .catch((error) => {

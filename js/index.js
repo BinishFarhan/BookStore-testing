@@ -1,81 +1,69 @@
-import { auth, onAuthStateChanged, signOut, database,set, ref, onValue, push } from "./firebase.js"
-console.log("🚀 ~ database:", database)
+// import { auth, onAuthStateChanged, signOut, database, set, ref, onValue, push } from "./firebase.js"
 
+// const addBookBtn1Home = document.getElementById('addBookBtn1Home')
+// addBookBtn1Home.onclick = () => {
+//     addBookBtn1Home.setAttribute("data-bs-toggle", "modal")
+//     addBookBtn1Home.setAttribute("data-bs-target", "#exampleModal")
 
-//refrences
-const addBookBtn = document.getElementById("addBookBtn1")
-const modal = document.getElementById('exampleModal')
-const signOutBtn = document.getElementById('SignOutBtn')
-const header = document.getElementById('welcome')
-// let userData;
+// }
 
-// for books
-const title = document.getElementById('titleInp')
-const price = document.getElementById('priceInp')
-const addBookModalBtn = document.getElementById('addBookModalBtn')
-const BookCards = document.getElementById('BookCards')
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        onValue(ref(database, `users/${user.uid}`), (snapshot) => {
-            let books = Object.values(snapshot.val().Books);
-            console.log("🚀 ~ onValue ~ books:", books)
-            BookCards.innerHTML = ""
-            for(let i = 0; i < books.length; i++){
-                console.log(books[i].price);
-                BookCards.innerHTML +=  `<h2>${books[i].title}</h2>
-                <h2>${books[i].price}</h2> `
-            }
-            header.innerHTML = `Welcome ${snapshot.val().firstName} ${snapshot.val().lastName}`
-            
-            
+// console.log(database);
+// var booksCard = document.getElementById("books")
+// // console.log("🚀 ~ books:", books)
 
-        });
-        const userBooksRef = ref(database, `users/${user.uid}/Books`);
-        addBookModalBtn.onclick = () => {
-            const newBookRef = push(userBooksRef);
-            const newBookRefKey = newBookRef.key;
-          
-            const newBookData = {
-              title: title.value,
-              price: price.value
-              // Add other book properties as needed
-            };
-          
-            set(ref(database, `users/${user.uid}/Books/${newBookRefKey}`), newBookData)
-              .then(() => {
-                console.log("Book data set successfully");
-              })
-              .catch((error) => {
-                console.error("Error setting book data:", error.message);
-              });
-        };
-        signOutBtn.onclick = () => {
-            signOut(auth)
-            console.log("user sign out successfull");
-            location.href = "login.html"
-        };
-        const uid = user.email;
-        console.log("🚀 ~ onAuthStateChanged ~ uid:", uid)
-        addBookBtn.onclick = () => {
-            if (user) {
-                addBookBtn.setAttribute("data-bs-toggle", "modal")
-                addBookBtn.setAttribute("data-bs-target", "#exampleModal")
-                console.log("button click");
-            }
+// onValue(ref(database, `users`), (snapshot) => {
+//     let users = Object.values(snapshot.val());
+//     // let userBooks = []
+//     let allBooks = []
+//     for(let i = 0 ; i < users.length; i++){
+//         let userBooks = Object.values(users[i].Books);
+//         allBooks = allBooks.concat(userBooks);
+//     }
+//     for(let i = 0; i <allBooks.length; i++){
+//         console.log(allBooks[i]);
+//         booksCard.innerHTML += `<h2>${allBooks[i].title}</h2>
+//             <h2>${allBooks[i].price}</h2>`
+//         }
+//     }
+// )
+    
+    
+//        // let users = Object.values(snapshot.val());
+//     // let allBooks = []
+//     // for(let i = 0 ; i < users.length; i++){
+//     //     let userBooks = Object.values(users[i].Books);
+//     //     allBooks = allBooks.concat(userBooks);
+//     // }
+//     // for(let i = 0; i <allBooks.length; i++){
+//     //     console.log(allBooks[i]);
+//     //     booksCard.innerHTML += `<h2>${allBooks[i].title}</h2>
+//     //         <h2>${allBooks[i].price}</h2>`
+//     //     }
+//     // }
+ 
+// // )
+// // for(let i = 0; i < users.length; i++){
+//     //     // userArr.push(users[i])
+//                 //     console.log(users[i]);
 
-        }
-    } else {
-        addBookBtn.onclick = () => {
-            console.log("user not logged in");
-        }
+//                 // }
+//                 // for(let i = 0 ; i < userArr.length; i++){
+//                     //     let books = Object.entries(userArr[i][1]);
+//                     //     booksArr.push(books[0]);
+//                     // }
+//                     // // console.log("🚀 ~ onValue ~ booksArr:", booksArr)
+//                     // for(let i = 0; i < booksArr.length; i++){
+//                         //     let booksDet = Object.entries(booksArr[i][1]);
+//                         //     bookDetail.push(booksDet)
+//                         // } 
+//                         // console.log("🚀 ~ onValue ~ bookDetail:", bookDetail)
+//                         // // for(let i = 0; i < booksArr.length; i++){
+//                             // //     let book = booksArr[i][1]
+                            
 
-    }
-    // userData = user
-}
+//     // // console.log("🚀 ~ onValue ~ books:", books)
+//     // let booksArr = Object.entries(books)
+//     // // console.log("🚀 ~ onValue ~ booksArr:", booksArr)
+//     // // header.innerHTML = `Welcome ${snapshot.val().firstName} ${snapshot.val().lastName} `
 
-
-);
-// setTimeout(() => {
-//     console.log(userData);
-
-// }, 2000)
+// // });

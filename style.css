@@ -1,3 +1,55 @@
+*{
+    font-family: 'Lemon', serif !important;
+/* font-family: 'Merriweather', serif !important; */
+}
+
+.background{
+    background-color: transparent !important;
+}
+.logo{
+    width: 70px !important;
+    height: 30;
+}
+.logo-margin{
+    margin-bottom: -0.25px !important;
+}
+.logo-color{
+    color: #0bdc51 ;
+}
+.btn{
+    background-color: #0bdc51 !important;
+    color: white !important;
+}
+.btn:hover{
+    background-color: #0bdc51 !important;
+    color: white !important;
+}
+.btn:active{
+    background-color: #0bdc51 !important;
+    color: white !important;
+    outline: none !important; 
+}
+
+.nav-anchor{
+    color: black !important;
+}
+.nav-anchor:hover{
+    color: #0bdc51 !important;
+    text-decoration: underline;
+    text-underline-offset: 15px !important;
+}
+.nav-anchor:active{
+    color: #0bdc51 !important;
+
+}
+
+.banner-font{
+    font-size: 50px !important;
+}
+.banner-font1{
+    font-size: 30px !important;
+}
+
 .page{
     display: flex;
     flex-direction: column;
@@ -13,7 +65,7 @@
 .label{
     font-size: 20px;
     font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 }
 .input{
     width: 100%;
