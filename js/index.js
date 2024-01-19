@@ -1,11 +1,11 @@
 // import { auth, onAuthStateChanged, signOut, database, set, ref, onValue, push } from "./firebase.js"
 
-// const addBookBtn1Home = document.getElementById('addBookBtn1Home')
-// addBookBtn1Home.onclick = () => {
-//     addBookBtn1Home.setAttribute("data-bs-toggle", "modal")
-//     addBookBtn1Home.setAttribute("data-bs-target", "#exampleModal")
+const addBookBtn1Home = document.getElementById('addBookBtn1Home')
+addBookBtn1Home.onclick = () => {
+    addBookBtn1Home.setAttribute("data-bs-toggle", "modal")
+    addBookBtn1Home.setAttribute("data-bs-target", "#exampleModal")
 
-// }
+}
 
 // console.log(database);
 // var booksCard = document.getElementById("books")

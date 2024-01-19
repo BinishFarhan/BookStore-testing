@@ -4,7 +4,7 @@
 }
 
 .background{
-    background-color: transparent !important;
+    background-color: white !important;
 }
 .logo{
     width: 70px !important;
@@ -49,6 +49,43 @@
 
 .banner-font1{
     font-size: 30px !important;
+}
+.carousal-height{
+    height: 525px !important;
+}
+/* .aboutUs-Background{
+    background-image: url('./images/about\ us\ photo\ 2.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+} */
+.aboutUS-font{
+    font-size: 15px !important;
+    line-height: 25px !important;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    /* Your styles go here */
+    .aboutUS-font {
+      font-size: 12px !important;
+      line-height: 20px !important;
+    }
+    .card-AboutUS{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* Your styles go here */
+    .aboutUS-font {
+        font-size: 12px !important;
+        line-height: 20px !important;
+      }
+    .card-AboutUS{
+        width: 100% !important;
+    }
+    .carousal-height{
+        height: 350px !important;
+    }
 }
 
 .page{
