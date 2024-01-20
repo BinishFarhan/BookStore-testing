@@ -1,15 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InkVista Books</title>
+    <link rel="icon" href="./images/untidy-stack-books_1101-319__1_-removebg-preview.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&family=Merriweather:ital@1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
-    <div class="page">
+<body id="loginBody">
+    <div class="container-fluid">
+        <!-- ========Navbar=======> -->
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg background fixed-top">
+                    <div class="container-fluid">
+                        <a class="navbar-brand me-5" href="#">
+                            <div class="d-flex">
+                                <img class="logo" src="./images/untidy-stack-books_1101-319__1_-removebg-preview.png"
+                                    alt="">
+                                <div class="d-flex flex-column mt-3 ">
+                                    <h1 class="logo-margin fs-6">InkVista</h1>
+                                    <h1 class="fs-6 fw-bold logo-color">Books</h1>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                                <li class="nav-item me-4 mt-2 ">
+                                    <a class="nav-link nav-anchor" href="#">Home</a>
+                                </li>
+                                <li class="nav-item me-4 mt-2">
+                                    <a class="nav-link nav-anchor" href="./index.html#aboutUs">About Us</a>
+                                </li>
+                                <li class="nav-item me-4 mt-2">
+                                    <a class="nav-link nav-anchor" href="./index.html#bookStore">Book Store</a>
+                                </li>
+                                <li class="nav-item me-4 mt-2">
+                                    <a class="nav-link nav-anchor" href="./index.html#contactUs">Contact Us</a>
+                                </li>
+
+                            </ul>
+                            <div class="d-flex">
+                                <a href="./login.html"><button class="btn ms-5"><i class="bi bi-people-fill fs-3"></i></button></a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ======signup div====== -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="  mt-5 " id="signupForm">
+                    <div class="">
+                        <h3 class=" text-center ">Sign <span class="logo-color">Up!</span></h3>
+                        <p class="text-center">It's quick and easy</p>
+                        <hr>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="bg-transparent shadow-lg w-75 mx-auto p-4">
+                    <div class="d-flex flex-column flex-md-row  justify-content-around mb-4 mb-md-4">
+                        <input class=" mb-5 mb-md-0 me-2 form-control" type="text" placeholder="First Name"
+                            id="firstNameInp">
+                        <input class=" form-control" type="text" placeholder="Surname" id="lastNameInp">
+                    </div>
+                    <br>
+                    <div class="d-flex flex-column flex-md-row  justify-content-around mb-4 mb-md-4">
+                        <input class="w-100 form-control mb-5 mb-md-0 me-2  " type="email" placeholder="Email address" id="emailInp">
+                        <input class="w-100 form-control   " type="password" id="passInp" placeholder="New password">
+                    </div>
+                    <br>
+                    
+                    <div class="d-flex flex-column ">
+                        <button id="regbtn" class="btn w-50 mx-auto">Create New User</button>
+                        <p class=" text-center mt-3 mb-5">Already have an account? <a href="login.html"
+                                class=" nav-anchor">Sign
+                                In!</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =====footer===== -->
+        <div class="row mt-5 fixed-bottom">
+            <div class="col p-0">
+              <footer>
+                <div class="footer  text-light d-flex  justify-content-center align-content-center ">
+                  <p class="h-25 my-auto footer-font">InkVista © 2024. ALL RIGHTS RESERVED</p>
+                </div>
+              </footer>
+        
+            </div>
+          </div>
+    </div>
+
+    <!-- <div class="page">
         <label for="inpFirstName" class="label">First Name</label><br>
         <input type="text" id="inpFirstName" class="input">
         <br>
@@ -29,7 +133,10 @@
         <button class="button" id="signupBtn">SignUp</button>
         <br>
         <p class="para">Already have an account. <a href="login.html" class="anchor">Login</a></p>
-    </div>
+    </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script src="./js/signup.js" type="module"></script>
 </body>
 

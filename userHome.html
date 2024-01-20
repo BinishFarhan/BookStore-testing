@@ -4,83 +4,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>InkVista Books</title>
+  <link rel="icon" href="./images/untidy-stack-books_1101-319__1_-removebg-preview.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="carousel.css" />
-<script src="carousel.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lemon&family=Merriweather:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body id="body">
+  <div class="container-fluid">
+    <!-- ========Navbar=======> -->
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-expand-lg background fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand me-5" href="#">
+              <div class="d-flex">
+                <img class="logo" src="./images/untidy-stack-books_1101-319__1_-removebg-preview.png" alt="">
+                <div class="d-flex flex-column mt-3 ">
+                  <h1 class="logo-margin fs-6">InkVista</h1>
+                  <h1 class="fs-6 fw-bold logo-color">Books</h1>
+                </div>
+              </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                <li class="nav-item me-4 mt-2 ">
+                  <a class="nav-link nav-anchor" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item me-4 mt-2">
+                  <a class="nav-link nav-anchor" href="./index.html#aboutUs">About Us</a>
+                </li>
+                <li class="nav-item me-4 mt-2">
+                  <a class="nav-link nav-anchor" href="./index.html#bookStore">Book Store</a>
+                </li>
+                <li class="nav-item me-4 mt-2">
+                  <a class="nav-link nav-anchor" href="./index.html#contactUs">Contact Us</a>
+                </li>
+                <li class="nav-item me-4 mt-2">
+                  <a class="nav-link nav-anchor" href="#myCollection">My Collection</a>
+                </li>
 
-  <nav class="navbar navbar-expand-lg background w-full shadow-lg" id="indNav">
-    <div class="container-fluid">
-      <div class="d-flex">
-        <img class="logo me-2" src="./images/images.jpeg" alt="">
-        <a class="navbar-brand fw-bold text d-none d-sm-block mt-2" href="#">Books-Library</a>
-      </div>
-      
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light textColor" id="addBookBtn1">
-        Add Books
-      </button>
-      <button type="button" class="btn btn-light textColor" id="SignOutBtn">
-        SignOut
-      </button>
-
-      <!-- Modal -->
-      <div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5 text" id="exampleModalLabel">Add Book Form</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="mb-3">
-                <label for="titleInp" class="text">Book Title</label>
-                <input type="text" class="form-control" id="titleInp" aria-describedby="emailHelp">
+              </ul>
+              <div class="d-flex flex-column flex-lg-row   align-items-center ">
+                <div class="rounded-circle bg-logo me-3 btn userBtns">
+                  <a href="" class="nav-anchor  textColor"><i class="bi bi-cart-plus-fill fs-5 text-light "></i></a>
+                </div>
+                <div class="rounded-circle bg-logo  me-3 btn userBtns">
+                  <a href="" class="nav-anchor  textColor"><i class="bi bi-bell-fill fs-5 text-light"></i></a>
+                </div>
+                <button type="button" class="btn me-lg-3 userBtns" id="addBookBtn1">
+                  Add Books
+                </button>
+                <button type="button" class="btn userBtns" id="SignOutBtn">
+                  SignOut
+                </button>
               </div>
-              <div class="mb-3">
-                <label for="priceInp" class="text">Book Cost</label>
-                <input type="text" class="form-control" id="priceInp">
-              </div>
-              <div class="mb-3">
-                <label for="authorInp" class="text">Author</label>
-                <input type="text" class="form-control" id="authorInp" aria-describedby="emailHelp">
-              </div>
-              <div class="mb-3">
-                <label for="imageInp" class="text">Image Address</label>
-                <input type="text" class="form-control" id="imageInp" aria-describedby="emailHelp">
-              </div>
-              <div class="mb-3">
-                <label for="readInp" class="text">Book URL</label>
-                <input type="text" class="form-control" id="readInp" aria-describedby="emailHelp">
-              </div>
-              
-            </div>
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-secondary textColor" data-bs-dismiss="modal">Close</button> -->
-              <button type="button" class="btn btn-primary textColor" id="addBookModalBtn" data-bs-dismiss="modal">Add Book</button>
             </div>
           </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ======Welcome user===== -->
+
+    <div class="row mt-5">
+      <div class="col mt-5">
+        <h1 id="welcome" class="text-center"></h1>
+      </div>
+    </div>
+  
+
+  <!-- =======My Collection=======> -->
+  <div class="row " id="myCollection">
+    <div class="col mt-5  ">
+      <h3 class="text-center ">
+        Your <span class="logo-color">Bookshelf</span> , Your <span class="logo-color">World</span>
+      </h3>
+    </div>
+  </div>
+  <div class="row mt-3" id="BookCards">
+  </div>
+
+
+</div>
+<!-- =====footer==== -->
+<div class="row mt-5">
+  <div class="col p-0">
+      <footer>
+          <div class=" w-100 footer text-light d-flex justify-content-center align-content-center   ">
+              <p class="h-25 my-auto footer-font">InkVista © 2024. ALL RIGHTS RESERVED</p>
+          </div>
+      </footer>
+  </div>
+</div>
+  <!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text" id="exampleModalLabel">Add Book Form</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="titleInp" class="text">Book Title</label>
+            <input type="text" class="form-control" id="titleInp" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="priceInp" class="text">Book Cost</label>
+            <input type="text" class="form-control" id="priceInp">
+          </div>
+          <div class="mb-3">
+            <label for="authorInp" class="text">Author</label>
+            <input type="text" class="form-control" id="authorInp" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="imageInp" class="text">Image Address</label>
+            <input type="text" class="form-control" id="imageInp" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="readInp" class="text">Book URL</label>
+            <input type="text" class="form-control" id="readInp" aria-describedby="emailHelp">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary textColor" data-bs-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary textColor" id="addBookModalBtn" data-bs-dismiss="modal">Add
+            Book</button>
         </div>
       </div>
     </div>
-  </nav>
-  <div>
-    <h1 id="welcome"></h1>
-    <h1 id="BookCards"></h1>
   </div>
-  
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-  
-    <script src="./js/firebase.js" type="module"></script>
+
+  <script src="./js/firebase.js" type="module"></script>
   <script src="./js/userHome.js" type="module"></script>
 </body>
 

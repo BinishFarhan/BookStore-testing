@@ -1,10 +1,26 @@
+body{
+    background-image: url("./images/bg2.jpg");
+    /* background-repeat: repeat;
+    background-size: contain; */
+}
+#loginBody{
+    background-image: url("./images/bg2.jpg");
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
 *{
     font-family: 'Lemon', serif !important;
 /* font-family: 'Merriweather', serif !important; */
 }
+p{
+    font-size: 15px !important;
+}
 
 .background{
-    background-color: white !important;
+    background-image: url("./images/bg2.jpg") !important;
 }
 .logo{
     width: 70px !important;
@@ -15,6 +31,9 @@
 }
 .logo-color{
     color: #0bdc51 ;
+}
+.bg-logo{
+    background-color: #0bdc51 !important;
 }
 .btn{
     background-color: #0bdc51 !important;
@@ -72,6 +91,13 @@
     .card-AboutUS{
         width: 100% !important;
     }
+    .userBtns{
+        width: fit-content !important;
+        margin-left: 30px !important;
+        margin-bottom: 20px !important;
+        
+        
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -86,6 +112,17 @@
     .carousal-height{
         height: 350px !important;
     }
+    .DOB-Width{
+        width: 100% !important;
+        margin-left: 25px !important;
+    }
+    .userBtns{
+        width: fit-content !important;
+        margin-left: 30px !important;
+        margin-bottom: 20px !important;
+        
+        
+    }
 }
 
 .page{
@@ -93,11 +130,11 @@
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-    height: 100vh;
+    height: 93.5vh;
     width: 50%;
     margin: auto;
     /* border: 1px solid black; */
-    padding: 10px;
+    /* padding: 10px; */
     text-align: start;
 }
 .label{
@@ -159,3 +196,15 @@
     border: none;
     cursor: pointer;
   }
+
+
+.footer{
+    background-color: #0bdc51 !important;
+    height: 40px !important;
+}
+.footer-font{
+    font-size: 12px !important;
+}
+.icon-font{
+    font-size: 12px !important;
+}

@@ -1,24 +1,27 @@
 import { auth, createUserWithEmailAndPassword, database, ref, push, set } from "./firebase.js"
 console.log("🚀 ~ database:", database)
 
-const firstName = document.getElementById("inpFirstName")
-const lastName = document.getElementById("inpLastName")
-const email = document.getElementById("inpEmail")
-const pass = document.getElementById("inpPass")
-const signupBtn = document.getElementById("signupBtn")
+const firstName = document.getElementById("firstNameInp")
+console.log("🚀 ~ firstName:", firstName)
+const lastName = document.getElementById("lastNameInp")
+const email = document.getElementById("emailInp")
+const pass = document.getElementById("passInp")
+const signupBtn = document.getElementById("regbtn")
 
-// const dbRef = ref(database, "users")
+const dbRef = ref(database, "users")
 
 
 function signUp() {
+  console.log(firstName.value);
   createUserWithEmailAndPassword(auth, email.value, pass.value)
     .then((userCredential) => {
       // Signed up 
       const user = userCredential.user;
       console.log("🚀 ~ .then ~ user:", user)
       user.displayName = `${firstName.value} ${lastName.value}`
-      // ...
-      console.log("🚀 ~ .then ~ user.displayName:", user.email)
+  //     // ...
+      console.log( user.displayName)
+      console.log(user.email);
       
       set(ref(database, `users/${user.uid}`), {
         firstName: firstName.value,
@@ -38,7 +41,7 @@ function signUp() {
       console.log("🚀 ~ signUp ~ errorMessage:", error)
       // ..
     });
-  // location.href = "login.html"
+  location.href = "login.html"
 }
 signupBtn.onclick = signUp
 
