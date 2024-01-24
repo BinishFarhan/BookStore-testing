@@ -95,8 +95,14 @@ p{
         width: fit-content !important;
         margin-left: 30px !important;
         margin-bottom: 20px !important;
-        
-        
+    }
+    .page{
+        margin-top: 0px !important;
+        /* width: 100% !important; */
+        /* background-color: orange !important; */
+        margin-bottom: 50px !important;
+        padding: 10px !important;
+
     }
 }
 
@@ -123,6 +129,14 @@ p{
         
         
     }
+    .page{
+        margin: 0px !important;
+        width: 100% !important;
+        /* background-color: orange !important; */
+        margin-bottom: 50px !important;
+        padding: 10px !important;
+    
+    }
 }
 
 .page{
@@ -130,7 +144,7 @@ p{
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-    height: 93.5vh;
+    /* height: 93.5vh; */
     width: 50%;
     margin: auto;
     /* border: 1px solid black; */
@@ -207,4 +221,17 @@ p{
 }
 .icon-font{
     font-size: 12px !important;
+}
+.img-height{
+    height: 250px !important;
+}
+
+.badge-font{
+    font-size: 15px !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    
+}
+.swal2-confirm{
+    background-color: #0bdc51 !important;
+    color: white !important;
 }

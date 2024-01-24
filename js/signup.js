@@ -1,8 +1,6 @@
 import { auth, createUserWithEmailAndPassword, database, ref, push, set } from "./firebase.js"
-console.log("🚀 ~ database:", database)
 
 const firstName = document.getElementById("firstNameInp")
-console.log("🚀 ~ firstName:", firstName)
 const lastName = document.getElementById("lastNameInp")
 const email = document.getElementById("emailInp")
 const pass = document.getElementById("passInp")
@@ -17,12 +15,8 @@ function signUp() {
     .then((userCredential) => {
       // Signed up 
       const user = userCredential.user;
-      console.log("🚀 ~ .then ~ user:", user)
       user.displayName = `${firstName.value} ${lastName.value}`
   //     // ...
-      console.log( user.displayName)
-      console.log(user.email);
-      
       set(ref(database, `users/${user.uid}`), {
         firstName: firstName.value,
         lastName: lastName.value
@@ -36,10 +30,7 @@ function signUp() {
       
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log("🚀 ~ signUp ~ errorMessage:", error)
-      // ..
+      console.log("🚀 ~ signUp ~ errorMessage:", error.message)
     });
   location.href = "login.html"
 }
