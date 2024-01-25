@@ -18,15 +18,34 @@ let bookURL = document.getElementById('readInp')
 
 const addBookModalBtn = document.getElementById('addBookModalBtn')
 const BookCards = document.getElementById('BookCards')
+const spinner = document.getElementById('spinner')
+const mainHeading = document.getElementById("mainHeading")
+const footer = document.getElementById('footer')
+function clearInputFields() {
+  title.value = ""
+  price.value = ""
+  author.value = ""
+  image.value = ""
+  bookURL.value = ""
+}
 onAuthStateChanged(auth, (user) => {
-    if (user) {
-        onValue(ref(database, `users/${user.uid}`), (snapshot) => {
-            header.innerHTML = `<span class="logo-color">Welcome</span> ${snapshot.val().firstName.charAt(0).toUpperCase()}${snapshot.val().firstName.slice(1)} ${snapshot.val().lastName.charAt(0).toUpperCase()}${snapshot.val().lastName.slice(1)}`
-            let books = Object.values(snapshot.val().Books);
-            BookCards.innerHTML = ""
-            for (let i = 0; i < books.length; i++) {
-                console.log(books[i].price);
-                BookCards.innerHTML += `<div class="col-12  col-sm-6 col-lg-4 my-3">
+  if (user) {
+    console.log("hello");
+    onValue(ref(database, `users/${user.uid}`), (snapshot) => {
+      header.innerHTML = `<span class="logo-color">Welcome</span> ${snapshot.val().firstName.charAt(0).toUpperCase()}${snapshot.val().firstName.slice(1)} ${snapshot.val().lastName.charAt(0).toUpperCase()}${snapshot.val().lastName.slice(1)}`
+      let books = Object.values(snapshot.val().Books);
+      mainHeading.innerHTML = ` <h3 class="text-center ">
+                                  Your <span class="logo-color">Bookshelf</span> , 
+                                  Your <span class="logo-color">World</span>
+                                </h3>`
+      footer.innerHTML = `<div class=" w-100 footer text-light d-flex justify-content-center align-content-center   ">
+      <p class="h-25 my-auto footer-font">InkVista © 2024. ALL RIGHTS RESERVED</p>
+      </div>`
+      spinner.style.display = "none"
+      BookCards.innerHTML = ""
+      for (let i = 0; i < books.length; i++) {
+        console.log(books[i].price);
+        BookCards.innerHTML += `<div class="col-12  col-sm-6 col-lg-4 my-3">
                 <div class="card mb-3 shadow-lg " style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-6">
@@ -42,72 +61,74 @@ onAuthStateChanged(auth, (user) => {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>`
-            }
-        });
-        const userBooksRef = ref(database, `users/${user.uid}/Books`);
-        addBookModalBtn.onclick = () => {
-            const newBookRef = push(userBooksRef);
-            const newBookRefKey = newBookRef.key;
-            const newBookData = {
-                title: title.value,
-                price: price.value,
-                author: author.value,
-                image: image.value,
-                bookURL: bookURL.value
-            };
-            set(ref(database, `users/${user.uid}/Books/${newBookRefKey}`), newBookData)
-                .then(() => {
-                    console.log("Book data set successfully");
-                })
-                .catch((error) => {
-                    console.error("Error setting book data:", error.message);
-                });
-        };
-        signOutBtn.onclick = () => {
-          console.log("helo");
-            signOut(auth)
-            console.log("user sign out successfull");
-            location.href = "index.html"
-        };
+                  </div>
+                  </div>`
+      }
+    });
+    const userBooksRef = ref(database, `users/${user.uid}/Books`);
+    addBookModalBtn.onclick = () => {
+      console.log("addbook buttonm");
+      const newBookRef = push(userBooksRef);
+      const newBookRefKey = newBookRef.key;
+      const newBookData = {
+        title: title.value,
+        price: price.value,
+        author: author.value,
+        image: image.value,
+        bookURL: bookURL.value
+      };
+      console.log("🚀 ~ onAuthStateChanged ~ newBookData:", newBookData)
 
-        addBookBtn.onclick = () => {
-            if (user) {
-              title = ""
-              price= ""
-              author= ""
-              image= ""
-              bookURL= ""
-                addBookBtn.setAttribute("data-bs-toggle", "modal")
-                addBookBtn.setAttribute("data-bs-target", "#exampleModal")
-                console.log("button click");
-            }
-        }
+      set(ref(database, `users/${user.uid}/Books/${newBookRefKey}`), newBookData)
+        .then(() => {
+          console.log("Book data set successfully");
+        })
+        .catch((error) => {
+          console.error("Error setting book data:", error.message);
+        });
+      clearInputFields()
+
+    };
+    signOutBtn.onclick = () => {
+      console.log("helo");
+      signOut(auth)
+      console.log("user sign out successfull");
+      location.href = "index.html"
+    };
+
+    addBookBtn.onclick = () => {
+      if (user) {
+        addBookBtn.setAttribute("data-bs-toggle", "modal")
+        addBookBtn.setAttribute("data-bs-target", "#exampleModal")
+        console.log("button click");
+
+      }
     }
+  } else {
+    console.log("not working");
+  }
+})
+
+// userData = user
+
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
     onValue(ref(database, `users/${user.uid}/Cart`), (snapshot) => {
       let cartQuantity = Object.values(snapshot.val());
       // console.log("🚀 ~ o-nValue ~ cartQuantity:", cartQuantity.length)
-       let index = 0
-      for(let i=0; i < cartQuantity.length; i++){
+      let index = 0
+      for (let i = 0; i < cartQuantity.length; i++) {
         console.log(cartQuantity[i].quantity);
-    
         index += cartQuantity[i].quantity
-        
       }
-      
       cart.innerHTML = `<i class="bi bi-cart-plus-fill fs-5 text-light "></i>
-                <span id="cart-badge" class=" position-absolute top-0 start-100 translate-middle px-2 bg-danger border border-light rounded-circle">
-                    <span class="badge-font">${index}</span>
-                </span>`
-    });
-
-    // userData = user
-}
-);
-
-
-
+            <span id="cart-badge" class=" position-absolute top-0 start-100 translate-middle px-2 bg-danger border border-light rounded-circle">
+                <span class="badge-font">${index}</span>
+            </span>`
+    })
+  }
+})
 
 
 

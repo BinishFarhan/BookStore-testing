@@ -8,7 +8,7 @@ if (addBookBtn1Home) {
   }
 }
 
-var booksCard = document.getElementById("books")
+const booksCard = document.getElementById("books")
 
 onValue(ref(database, `users`), (snapshot) => {
   let users = Object.values(snapshot.val());
@@ -19,8 +19,10 @@ onValue(ref(database, `users`), (snapshot) => {
     let userBooks = Object.values(users[i].Books);
     allBooks = allBooks.concat(userBooks);
   }
+  booksCard.innerHTML = ""
   for (let i = 0; i < allBooks.length; i++) {
     if (booksCard) {
+      
       booksCard.innerHTML += `<div class="col-12  col-sm-6 col-lg-4 my-3">
         <div class="card mb-3 shadow-lg   " >
           <div class="row g-0  ">
@@ -61,6 +63,7 @@ function attachCartButtonEventListeners(user) {
 
     const handleClick = (event) => {
       const target = event.target;
+      console.log(target);
       if (target.classList.contains('cart-Btn')) {
         console.log('hello');
         
@@ -86,6 +89,7 @@ function attachCartButtonEventListeners(user) {
 
     onValue(ref(database, `users/${user.uid}/Cart`), (snapshot) => {
       let cartQuantity = Object.values(snapshot.val());
+      console.log("🚀 ~ onValue ~ cartQuantity:", cartQuantity)
       // console.log("🚀 ~ o-nValue ~ cartQuantity:", cartQuantity.length)
       index = 0
       for(let i=0; i < cartQuantity.length; i++){
@@ -110,14 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (user) {
       console.log(user);
       attachCartButtonEventListeners(user);
+      if (navUl) {
+        navUl.innerHTML += `<li class="nav-item me-4 mt-2 ">
+        <a class="nav-link nav-anchor" href="./userHome.html#myCollection">My Account</a>
+      </li>`
+        navLoginBtn.setAttribute("href", "./userHome.html")
+      }
     }
     // ... (rest of your code)
-    if (navUl) {
-      navUl.innerHTML += `<li class="nav-item me-4 mt-2 ">
-      <a class="nav-link nav-anchor" href="./userHome.html#myCollection">My Account</a>
-    </li>`
-      navLoginBtn.setAttribute("href", "./userHome.html")
-    }
   });
 });   
    

@@ -22,7 +22,7 @@
     <!-- ========Navbar=======> -->
     <div class="row">
       <div class="col">
-        <nav class="navbar navbar-expand-lg background fixed-top">
+        <nav class="navbar navbar-expand-lg background fixed-top shadow-lg">
           <div class="container-fluid">
             <a class="navbar-brand me-5" href="#">
               <div class="d-flex">
@@ -79,38 +79,41 @@
       </div>
     </div>
 
-    <!-- ======Welcome user===== -->
+    <!-- ======loader====== -->
 
+    <!-- ======Welcome user===== -->
     <div class="row mt-5">
       <div class="col mt-5">
         <h1 id="welcome" class="text-center"></h1>
       </div>
     </div>
-  
+    <div class="d-flex justify-content-center align-items-center fs-1">
+      <div class="spinner-border " style="width: 3rem; height: 3rem;" role="status" id="spinner">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
 
-  <!-- =======My Collection=======> -->
-  <div class="row " id="myCollection">
-    <div class="col mt-5  ">
-      <h3 class="text-center ">
-        Your <span class="logo-color">Bookshelf</span> , Your <span class="logo-color">World</span>
-      </h3>
+
+    <!-- =======My Collection=======> -->
+    <div class="row " id="myCollection">
+      <div class="col mt-5  " id="mainHeading">
+
+      </div>
+    </div>
+    <div class="row mt-3" id="BookCards">
+    </div>
+
+
+  </div>
+
+  <!-- =====footer==== -->
+  <div class="row mt-5">
+    <div class="col p-0">
+      <footer id="footer">
+
+      </footer>
     </div>
   </div>
-  <div class="row mt-3" id="BookCards">
-  </div>
-
-
-</div>
-<!-- =====footer==== -->
-<div class="row mt-5">
-  <div class="col p-0">
-      <footer>
-          <div class=" w-100 footer text-light d-flex justify-content-center align-content-center   ">
-              <p class="h-25 my-auto footer-font">InkVista © 2024. ALL RIGHTS RESERVED</p>
-          </div>
-      </footer>
-  </div>
-</div>
   <!-- Button trigger modal -->
   <!-- Modal -->
   <div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -123,7 +126,7 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="titleInp" class="text">Book Title</label>
-            <input type="text" class="form-control" id="titleInp" aria-describedby="emailHelp">
+            <input type="text" class="form-control" id="titleInp" aria-describedby="emailHelp" >
           </div>
           <div class="mb-3">
             <label for="priceInp" class="text">Book Cost</label>
