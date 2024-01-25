@@ -67,6 +67,8 @@ onAuthStateChanged(auth, (user) => {
     });
     const userBooksRef = ref(database, `users/${user.uid}/Books`);
     addBookModalBtn.onclick = () => {
+      if(title.value && price.value && author.value && image.value ){
+
       console.log("addbook buttonm");
       const newBookRef = push(userBooksRef);
       const newBookRefKey = newBookRef.key;
@@ -78,7 +80,6 @@ onAuthStateChanged(auth, (user) => {
         bookURL: bookURL.value
       };
       console.log("🚀 ~ onAuthStateChanged ~ newBookData:", newBookData)
-
       set(ref(database, `users/${user.uid}/Books/${newBookRefKey}`), newBookData)
         .then(() => {
           console.log("Book data set successfully");
@@ -86,7 +87,21 @@ onAuthStateChanged(auth, (user) => {
         .catch((error) => {
           console.error("Error setting book data:", error.message);
         });
-      clearInputFields()
+        clearInputFields()
+      }else{
+
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please complete all required fields before proceeding.",
+        });
+        document.getElementById('exampleModal').style.display = "block"
+        document.getElementById('closeBtn').onclick = ()=> {
+          document.getElementById('exampleModal').style.display = "none"
+          clearInputFields()
+        }
+        
+      }
 
     };
     signOutBtn.onclick = () => {
@@ -132,3 +147,20 @@ onAuthStateChanged(auth, (user) => {
 
 
 
+let toggleBtn = document.getElementById("toggleBtn")
+let navbar = document.getElementById('navbarSupportedContent')
+
+
+window.onkeyup = function () {
+  if (event.key === "Escape") {
+    toggleBtn.click()
+  }
+}
+window.onclick = function (event) {
+  const targetElement = event.target;
+  const navbar = document.getElementById('navbarSupportedContent');
+  const toggleBtn = document.getElementById('toggleBtn');
+  if (navbar.classList.contains('show')) {
+    toggleBtn.click();
+  }
+};
