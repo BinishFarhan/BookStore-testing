@@ -11,14 +11,21 @@ if (addBookBtn1Home) {
 const booksCard = document.getElementById("books")
 
 onValue(ref(database, `users`), (snapshot) => {
+  // console.log(snapshot.val());
   let users = Object.values(snapshot.val());
+  // console.log("🚀 ~ onValue ~ users:", users)
 
-  // let userBooks = []
+  let userBooks = []
   let allBooks = []
   for (let i = 0; i < users.length; i++) {
-    let userBooks = Object.values(users[i].Books);
-    allBooks = allBooks.concat(userBooks);
+    if (users[i].Books) { // Check if Books property exists and is not null/undefined
+      let userBooks = Object.values(users[i].Books);
+      allBooks = allBooks.concat(userBooks);
+  } else {
+      console.log("User", users[i], "does not have any books.");
+  } // allBooks = allBooks.concat(userBooks);
   }
+  console.log("🚀 ~ onValue ~ allBooks:", allBooks)
   booksCard.innerHTML = ""
   for (let i = 0; i < allBooks.length; i++) {
     if (booksCard) {
@@ -47,8 +54,7 @@ onValue(ref(database, `users`), (snapshot) => {
 
   }
 
-}
-)
+})
 
 const navUl = document.getElementById('nav-ul')
 const navLoginBtn = document.getElementById('nav-login-btn')
@@ -88,6 +94,7 @@ function attachCartButtonEventListeners(user) {
     booksCard.addEventListener('click', handleClick);
 
     onValue(ref(database, `users/${user.uid}/Cart`), (snapshot) => {
+      if(snapshot.val()){
       let cartQuantity = Object.values(snapshot.val());
       console.log("🚀 ~ onValue ~ cartQuantity:", cartQuantity)
       // console.log("🚀 ~ o-nValue ~ cartQuantity:", cartQuantity.length)
@@ -105,6 +112,7 @@ function attachCartButtonEventListeners(user) {
                 </span>`
       console.log(index);
       resolve();
+    }
     });
   });
 }

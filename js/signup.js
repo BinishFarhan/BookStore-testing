@@ -30,9 +30,29 @@ function signUp() {
       
     })
     .catch((error) => {
-      console.log("🚀 ~ signUp ~ errorMessage:", error.message)
+      Swal.fire({
+        icon: "error",
+        text: `${errorMessage}`,
+      });
     });
   location.href = "login.html"
 }
 signupBtn.onclick = signUp
 
+let toggleBtn = document.getElementById("toggleBtn")
+let navbar = document.getElementById('navbarSupportedContent')
+
+
+window.onkeyup = function () {
+  if (event.key === "Escape") {
+    toggleBtn.click()
+  }
+}
+window.onclick = function (event) {
+  const targetElement = event.target;
+  const navbar = document.getElementById('navbarSupportedContent');
+  const toggleBtn = document.getElementById('toggleBtn');
+  if (navbar.classList.contains('show')) {
+    toggleBtn.click();
+  }
+};

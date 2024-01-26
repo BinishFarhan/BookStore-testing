@@ -32,8 +32,9 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("hello");
     onValue(ref(database, `users/${user.uid}`), (snapshot) => {
+console.log(snapshot.val());
       header.innerHTML = `<span class="logo-color">Welcome</span> ${snapshot.val().firstName.charAt(0).toUpperCase()}${snapshot.val().firstName.slice(1)} ${snapshot.val().lastName.charAt(0).toUpperCase()}${snapshot.val().lastName.slice(1)}`
-      let books = Object.values(snapshot.val().Books);
+      spinner.style.display = "none"
       mainHeading.innerHTML = ` <h3 class="text-center ">
                                   Your <span class="logo-color">Bookshelf</span> , 
                                   Your <span class="logo-color">World</span>
@@ -41,7 +42,8 @@ onAuthStateChanged(auth, (user) => {
       footer.innerHTML = `<div class=" w-100 footer text-light d-flex justify-content-center align-content-center   ">
       <p class="h-25 my-auto footer-font">InkVista © 2024. ALL RIGHTS RESERVED</p>
       </div>`
-      spinner.style.display = "none"
+      if(snapshot.val().Books){
+      let books = Object.values(snapshot.val().Books);
       BookCards.innerHTML = ""
       for (let i = 0; i < books.length; i++) {
         console.log(books[i].price);
@@ -64,7 +66,13 @@ onAuthStateChanged(auth, (user) => {
                   </div>
                   </div>`
       }
-    });
+    }else{
+      BookCards.innerHTML = `<h3 class="text-center ">No books to show</h3>`
+
+    }
+    
+
+  });
     const userBooksRef = ref(database, `users/${user.uid}/Books`);
     addBookModalBtn.onclick = () => {
       if(title.value && price.value && author.value && image.value ){
