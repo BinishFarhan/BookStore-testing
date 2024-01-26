@@ -23,6 +23,7 @@ function signUp() {
       })
       .then(() => {
         console.log("User data set successfully");
+        location.href = "login.html"
       })
       .catch((error) => {
         console.error("Error setting user data:", error.message);
@@ -31,11 +32,11 @@ function signUp() {
     })
     .catch((error) => {
       Swal.fire({
-        icon: "error",
-        text: `${errorMessage}`,
-      });
+      icon: "error",
+      text: `${error.message}`,
     });
-  location.href = "login.html"
+    });
+    
 }
 signupBtn.onclick = signUp
 
