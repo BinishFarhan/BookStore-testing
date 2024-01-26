@@ -241,3 +241,9 @@ p{
 /* #spinner{
     width: 50px !important;
 } */
+.swal2-icon{
+ color: #0bdc51 !important;   
+}
+.swal2-icon-show{
+    border: 2px solid #0bdc51 !important;   
+   }

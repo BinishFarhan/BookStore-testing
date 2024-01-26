@@ -64,6 +64,7 @@ const cart = document.getElementById('cart')
 let index = 0
 
 function attachCartButtonEventListeners(user) {
+if(user){
   return new Promise((resolve, reject) => {
     const booksCard = document.getElementById("books");
 
@@ -116,6 +117,7 @@ function attachCartButtonEventListeners(user) {
     });
   });
 }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   onAuthStateChanged(auth, (user) => {
@@ -128,6 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
       </li>`
         navLoginBtn.setAttribute("href", "./userHome.html")
       }
+    }else{
+      booksCard.addEventListener('click', ()=>{
+        Swal.fire({
+          icon: "info",
+          text: "Wish to buy books !",
+          confirmButtonText: "Log In",
+        });
+      });
     }
     // ... (rest of your code)
   });
